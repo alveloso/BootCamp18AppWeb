@@ -12,7 +12,7 @@ import modelo.Producto;
 import daos.ProductosDAO;
 import daosImpl.ProductosDAOImpl;
 
-@WebServlet("/admin/ServletEditarCliente")
+@WebServlet("/admin/ServletEditarProducto")
 public class ServletEditarProducto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

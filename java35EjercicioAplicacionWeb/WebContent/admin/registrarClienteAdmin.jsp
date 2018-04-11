@@ -25,7 +25,6 @@
 		Teléfono: <input type="text" name="campoTelefono" id="campoTelefono"><br/>
 		Email: <input type="text" name="campoEmail" id="campoEmail"><br/>
 		Particular/Empresa: <input type="text" name="campoParticularEmpresa" id="campoParticularEmpresa"><br/>
-				
 		<input type="submit" value="REGISTRAR">
 	</form>
 

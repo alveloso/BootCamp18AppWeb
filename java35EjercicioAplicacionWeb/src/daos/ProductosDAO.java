@@ -11,6 +11,4 @@ public interface ProductosDAO {
 	public void borrarProducto(int id);
 	public Producto obtenerProductoPorId(int id);
 	public void guardarCambiosProducto(Producto producto);
-	
-	
 }

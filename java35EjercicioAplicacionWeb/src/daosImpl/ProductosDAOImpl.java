@@ -3,10 +3,12 @@ package daosImpl;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Producto;
+import utilidades.GestorArchivos;
 import daos.ConstantesSQL;
 import daos.GenericDAO;
 import daos.ProductosDAO;
@@ -18,7 +20,7 @@ public class ProductosDAOImpl extends GenericDAO implements ProductosDAO{
 		conectar();
 		
 		try {
-			PreparedStatement ps = miConexion.prepareStatement(ConstantesSQL.REGISTRAR_PRODUCTO);
+			PreparedStatement ps = miConexion.prepareStatement(ConstantesSQL.REGISTRAR_PRODUCTO, Statement.RETURN_GENERATED_KEYS);
 			
 			ps.setString(1, producto.getNombre());
 			ps.setString(2, producto.getDispositivos());
@@ -32,6 +34,19 @@ public class ProductosDAOImpl extends GenericDAO implements ProductosDAO{
 			ps.setString(10, producto.getEditor());
 			
 			ps.execute();
+			
+			//Una vez registrado vamos a pedir el id del producto registrado
+			
+			ResultSet rs = ps.getGeneratedKeys();
+			
+			if(rs.next()){
+				int idGenerado = rs.getInt(1);
+				System.out.println("Id generado en base de datos: " + idGenerado);
+				//Guardamos la imagen del producto en una carpeta
+				//nombrada por ejemplo con el mismo idGenerado
+				GestorArchivos.guardarArchivo(producto.getImagenSubida(), idGenerado + ".jpg");
+				
+			}
 			ps.close();
 			
 		} catch (SQLException e) {
@@ -51,6 +66,7 @@ public class ProductosDAOImpl extends GenericDAO implements ProductosDAO{
 			PreparedStatement ps = miConexion.prepareStatement(ConstantesSQL.SELECCIONAR_PRODUCTOS);
 			
 			ResultSet resultado = ps.executeQuery();
+			
 			while(resultado.next()){
 				Producto producto = new Producto();
 				
@@ -65,6 +81,11 @@ public class ProductosDAOImpl extends GenericDAO implements ProductosDAO{
 				producto.setIdioma(resultado.getString("idioma"));
 				producto.setEditor(resultado.getString("editor"));
 				producto.setId(resultado.getInt("id_producto"));
+				
+				//System.out.println("He cogido el idProducto: " + resultado.getInt("id_producto"));
+				producto.setRutaImagen(GestorArchivos.rutaArchivo(resultado.getInt("id_producto")));
+				
+				System.out.println("Lo que hay en rutaImagen es: " + producto.getRutaImagen());
 				
 				productos.add(producto);
 			}//end while

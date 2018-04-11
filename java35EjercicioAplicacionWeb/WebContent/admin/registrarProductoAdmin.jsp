@@ -21,7 +21,7 @@
 	<div>Introduce los datos del juego</div>
 	
 	<!-- Las vistas cuanto más sencillas mejor-->
-	<form action="ServletRegistroProducto" method="post">
+	<form action="ServletRegistroProducto" method="post" enctype="multipart/form-data">
 		Nombre: <input type="text" name="campoNombre" id="campoNombre"><br/>
 		Dispositivos: <input type="text" name="campoDispositivos" id="campoDispositivos"><br/>
 		Genero: <input type="text" name="campoGenero" id="campoNumeracion"><br/>
@@ -31,7 +31,8 @@
 		Numero de jugadores: <input type="text" name="campoNumeroJugadores" id="campoNumeroJugadores"><br/>
 		Compañia: <input type="text" name="campoCompania" id="campoCompania"><br/>
 		Idioma: <input type="text" name="campoIdioma" id="campoIdioma"><br/>
-		Editor: <input type="text" name="campoEditor" id="campoEditor"><br/>		
+		Editor: <input type="text" name="campoEditor" id="campoEditor"><br/>
+		Imágen: <input type="file" name="campoImagen"><br/>	
 		<input type="submit" value="REGISTRAR">
 	</form>
 	

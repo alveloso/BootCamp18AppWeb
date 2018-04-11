@@ -27,7 +27,7 @@ public class GenericDAO {
 	
 	protected void conectar(){
 		try {
-			miConexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/practica_web","root","jeveris");
+			miConexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/practica_web","root","yupicat1");
 		} catch (SQLException e) {
 			System.out.println("No pude conectarme a la bbdd");
 			System.out.println("Comprobar ruta de bbdd");

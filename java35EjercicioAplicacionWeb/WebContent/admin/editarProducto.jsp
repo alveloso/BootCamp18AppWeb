@@ -27,8 +27,7 @@
 		Numero de jugadores: <input type="text" name="campoNumeroJugadores" value="${productoAeditar.numeroJugadores}"><br/>
 		Compañia: <input type="text" name="campoCompania" value="${productoAeditar.compania}"><br/>
 		Idioma: <input type="text" name="campoIdioma" value="${productoAeditar.idioma}"><br/>
-		Editor: <input type="text" name="campoEditor" value="${prouctoAeditar.editor}"><br/>
-		
+		Editor: <input type="text" name="campoEditor" value="${productoAeditar.editor}"><br/>
 		<input type="hidden" name="campoId" value="${ productoAeditar.id }">
 		<input type="submit" value="GUARDAR CAMBIOS">
 	</form>

@@ -34,6 +34,7 @@
 			Compañía: ${producto.compania}</br>
 			Idioma: ${producto.idioma}</br>
 			Editor: ${producto.editor}</br>
+ 			Imagen: <img alt="Imagen" src="${producto.rutaImagen}" height="200">
 			<a href="ServletBorrarProducto?id=${producto.id}">BORRAR</a><br/>
 			<a href="ServletEditarProducto?id=${producto.id}">EDITAR</a><br/>
 		</div>

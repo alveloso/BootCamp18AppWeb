@@ -30,6 +30,7 @@
 			Código postal: ${cliente.codigoPostal}</br>
 			Poblacion: ${cliente.poblacion}</br>
 			Telefono: ${cliente.telefono}</br>
+			Email: ${cliente.email}</br>
 			Particular/Empresa: ${cliente.particularEmpresa}</br>
 			
 			<a href="ServletBorrarCliente?id=${cliente.id}">BORRAR</a><br/>

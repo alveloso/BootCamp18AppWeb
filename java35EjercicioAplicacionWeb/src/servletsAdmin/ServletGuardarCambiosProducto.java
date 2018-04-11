@@ -20,7 +20,7 @@ public class ServletGuardarCambiosProducto extends HttpServlet {
 		String nombre = request.getParameter("campoNombre");
 		String dispositivos = request.getParameter("campoDispositivos");
 		String genero = request.getParameter("campoGenero");
-		String fechaSalida = request.getParameter("campofechaSalida");
+		String fechaSalida = request.getParameter("campoFechaSalida");
 		double precio = Integer.parseInt(request.getParameter("campoPrecio"));
 		String formato = request.getParameter("campoFormato");
 		String numeroJugadores = request.getParameter("campoNumeroJugadores");

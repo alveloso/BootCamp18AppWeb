@@ -1,5 +1,7 @@
 package modelo;
 
+import javax.servlet.http.Part;
+
 public class Cliente {
 	private int id;//Para el tema de borrar o editar
 	private String nombre;
@@ -10,6 +12,7 @@ public class Cliente {
 	private String telefono;
 	private String email;
 	private String particularEmpresa;
+
 
 	public Cliente() {
 		// TODO Auto-generated constructor stub
@@ -109,5 +112,7 @@ public class Cliente {
 				+ telefono + ", email=" + email + ", particularEmpresa="
 				+ particularEmpresa + "]";
 	}
+	
+	
 	
 }

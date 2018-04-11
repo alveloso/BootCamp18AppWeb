@@ -3,15 +3,18 @@ package servletsAdmin;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import daosImpl.ProductosDAOImpl;
 import modelo.Producto;
 
 @WebServlet("/admin/ServletRegistroProducto")
+@MultipartConfig//ESto es necesario para subir archivos
 public class ServletRegistroProducto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -29,8 +32,9 @@ public class ServletRegistroProducto extends HttpServlet {
 		String compania = request.getParameter("campoCompania");
 		String idioma = request.getParameter("campoIdioma");
 		String editor = request.getParameter("campoEditor");
+		Part imagen = request.getPart("campoImagen");
 		//parte de validacion de datos
-		Producto nuevoProducto = new Producto(nombre, dispositivos, genero, fechaSalida, precio, formato, numeroJugadores, compania, idioma, editor);
+		Producto nuevoProducto = new Producto(nombre, dispositivos, genero, fechaSalida, precio, formato, numeroJugadores, compania, idioma, editor, imagen);
 		
 		//Ahora le damos el nuevo anuncio a un dao para que lo registre
 		System.out.println("Vamos a registrar:" + nuevoProducto.toString());
